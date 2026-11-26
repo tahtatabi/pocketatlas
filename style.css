@@ -11,10 +11,15 @@ p, li { color: var(--ink); }
 .muted { color: var(--soft); font-size: 15px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px 16px; margin-top: 16px; }
 a { color: var(--red); }
-nav.lang { margin: 12px 0 0; font-size: 15px; }
-nav.lang button { font: inherit; background: none; border: 1px solid var(--line); border-radius: 20px; padding: 4px 14px; color: var(--ink); cursor: pointer; margin-right: 6px; }
+nav.lang { margin: 12px 0 0; font-size: 15px; display: flex; flex-wrap: wrap; gap: 6px; }
+nav.lang button { font: inherit; background: none; border: 1px solid var(--line); border-radius: 20px; padding: 4px 12px; color: var(--ink); cursor: pointer; }
 nav.lang button[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
-/* Only the texts inside the page: lang.js also sets <html lang>, which must never be hidden. */
-body:not(.tr) [lang="tr"], body.tr [lang="en"] { display: none; }
+/* lang.js hides every language but the reader's; without it only English shows. Only texts inside
+   the body: lang.js also sets <html lang>, which must never be hidden. */
+body:not(.js) [lang]:not([lang="en"]) { display: none; }
+[hidden] { display: none !important; }
+:lang(ja) body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; }
+:lang(ko) body { font-family: "AppleMyungjo", "Nanum Myeongjo", serif; }
+:lang(zh-Hant) body { font-family: "Songti TC", "PMingLiU", serif; }
 footer { margin-top: 48px; font-size: 14px; color: var(--soft); }
 ul { padding-left: 22px; } li { margin: 4px 0; }
