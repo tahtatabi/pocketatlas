@@ -18,3 +18,4 @@ nav.lang button[aria-pressed="true"] { background: var(--ink); color: var(--card
 body.tr [lang="en"] { display: none; }
 body.tr [lang="tr"] { display: block; }
 footer { margin-top: 48px; font-size: 14px; color: var(--soft); }
+ul { padding-left: 22px; } li { margin: 4px 0; }
